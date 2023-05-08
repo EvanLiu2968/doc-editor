@@ -5,6 +5,7 @@
                 v-for="item in menus"
                 :key="item.path"
                 class="menu-item"
+                :class="{ active: item.path === route.path }"
                 @click="gotoMenuPage(item)"
             >
                 {{ item.title }}
@@ -15,11 +16,11 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { ref, onMounted } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 const menus = ref([
     {
-        title: '格式检测简报1',
+        title: '格式检测简报',
         path: '/doc/report',
     },
     {
@@ -28,6 +29,10 @@ const menus = ref([
     },
 ]);
 const router = useRouter();
+const route = useRoute();
+onMounted(() => {
+    console.log(route.path);
+});
 const gotoMenuPage = (item: any) => {
     router.push({
         path: item.path,
@@ -45,9 +50,14 @@ const gotoMenuPage = (item: any) => {
 }
 .menu-item {
     font-size: 16px;
-    color: #f8f8f8;
+    color: rgba(255, 255, 255, 0.5);
     min-width: 100px;
     text-align: center;
-    margin: 0 10px;
+    margin: 0 20px;
+    cursor: pointer;
+    &.active {
+        color: #f8f8f8;
+        font-size: 20px;
+    }
 }
 </style>

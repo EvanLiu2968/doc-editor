@@ -63,9 +63,18 @@ export default defineConfig({
     ],
     server: {
         port: 7000,
+        open: true,
+        proxy: {
+            '/dev-api': {
+                target: 'https://xxxx.com/',
+                changeOrigin: true, ///设置访问目标地址允许跨域
+                rewrite: (p) => p.replace(/^\/dev-api/, ''),
+            },
+        },
         hmr: {
+            overlay: true,
             host: '127.0.0.1',
-            port: 7000,
+            port: 7080,
         },
     },
 });

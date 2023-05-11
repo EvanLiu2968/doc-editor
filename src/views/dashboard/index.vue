@@ -1,13 +1,9 @@
 <template>
-  <div>首页</div>
+  <WujieVue :url="'http://test.gezida.com/'" />
 </template>
 
-<script lang="ts" setup>
-import { useUserStore } from '@/store/modules/user'
+<script setup>
 import { computed } from 'vue'
-const userStore = useUserStore()
+import WujieVue from '@/components/wujie'
 
-const userInfo = computed(() => {
-  return userStore.userInfo
-})
 </script>

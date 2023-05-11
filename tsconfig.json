@@ -4,6 +4,8 @@
     "useDefineForClassFields": true,
     "module": "esnext",
     "strict": true,
+    "allowJs": true, 
+    "checkJs": false,
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",

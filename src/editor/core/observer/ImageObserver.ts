@@ -1,19 +1,21 @@
 export class ImageObserver {
-    private promiseList: Promise<unknown>[];
 
-    constructor() {
-        this.promiseList = [];
-    }
+  private promiseList: Promise<unknown>[]
 
-    public add(payload: Promise<unknown>) {
-        this.promiseList.push(payload);
-    }
+  constructor() {
+    this.promiseList = []
+  }
 
-    public clearAll() {
-        this.promiseList = [];
-    }
+  public add(payload: Promise<unknown>) {
+    this.promiseList.push(payload)
+  }
 
-    public allSettled() {
-        return Promise.allSettled(this.promiseList);
-    }
+  public clearAll() {
+    this.promiseList = []
+  }
+
+  public allSettled() {
+    return Promise.allSettled(this.promiseList)
+  }
+
 }

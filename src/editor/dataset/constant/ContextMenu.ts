@@ -1,3 +1,3 @@
 export const NAME_PLACEHOLDER = {
-    SELECTED_TEXT: '%s',
-};
+  SELECTED_TEXT: '%s'
+}

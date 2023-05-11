@@ -1,28 +1,29 @@
-<script lang="ts" setup>
-import { useUserStore } from '@/store/user';
-
-const userStore = useUserStore();
-
-userStore.initUser();
-</script>
 <template>
-    <RouterView />
+  <ElConfigProvider :locale="locale">
+    <router-view />
+  </ElConfigProvider>
 </template>
+
+<script lang="ts" setup>
+import { ElConfigProvider } from 'element-plus'
+import zhCn from 'element-plus/lib/locale/lang/zh-cn'
+import { useAppStore } from '@/store/modules/app'
+
+const locale = zhCn // element-plus 设置为中文
+
+useAppStore().initTheme() // 初始化 Theme
+</script>
 <style lang="scss">
-#app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    line-height: 150%;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-.main {
-    min-height: 500px;
+body {
+    background-color: #f2f4f7;
 }
 
-.sw-msg {
-    margin-top: 20px;
+ul {
+    list-style: none;
 }
 </style>

@@ -1,39 +1,35 @@
 {
   "compilerOptions": {
-    "typeRoots": [
-      "node_modules/@types",
-      "src/types"
-    ],
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",
-    "moduleResolution": "node",
     "strict": true,
     "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "lib": [
-      "esnext",
-      "webworker",
-      "dom"
-    ],
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
     "skipLibCheck": true,
-    "baseUrl": "./",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "ignoreDeprecations": "5.0",
+    "sourceMap": true,
+    "baseUrl": ".",
+    "types": [
+      "node",
+      "webpack-env",
+      "element-plus/global", // element-plus 的 volar 插件支持
+    ],
     "paths": {
-      "@": [
-        "src"
-      ],
       "@/*": [
         "src/*"
       ]
     },
-    "types": [
-      "element-plus/global",
-      "vite/client",
-      "vue/ref-macros",
-      "unplugin-vue-macros/macros-global"
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
     ]
   },
   "include": [
@@ -42,9 +38,8 @@
     "src/**/*.tsx",
     "src/**/*.vue"
   ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
+  "exclude": [
+    "src/editor",
+    "node_modules"
   ]
 }

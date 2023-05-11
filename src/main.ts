@@ -1,24 +1,14 @@
-import { createApp } from 'vue';
-import ElementPlus from 'element-plus';
+import { createApp, Directive } from 'vue'
+import App from './App.vue'
+import store from './store'
+import router from './router'
+import { loadAllPlugins } from './plugins'
+import '@/styles/index.scss'
+import 'normalize.css'
+import '@/router/permission'
 
-import App from './App.vue';
-import { store } from './store';
-import { router } from './router';
+const app = createApp(App)
+// 加载所有插件
+loadAllPlugins(app)
 
-import 'uno.css';
-import '@/assets/styles/index.scss';
-// If you want to use ElMessage, import it.
-import 'element-plus/theme-chalk/src/message.scss';
-
-async function main() {
-    const app = createApp(App);
-
-    // load plugins
-    app.use(store);
-    app.use(router);
-    app.use(ElementPlus);
-
-    app.mount('#app');
-}
-
-main();
+app.use(store).use(router).mount('#app')

@@ -1,5 +1,2 @@
-node_modules/
-dist/
-index.html
-
+vue.config.js
 src/editor/
